@@ -1,0 +1,70 @@
+nav {
+  background: #1e2024;
+  color: #e0e0e0;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 10px 10px 20px #0f1012, -10px -10px 20px #2c2f34;
+  border-radius: 0 0 20px 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* ==== Grupos izquierda y derecha ==== */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ==== Título ==== */
+nav h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: #90caf9;
+}
+
+/* ==== Links ==== */
+nav a {
+  text-decoration: none;
+  color: #e0e0e0;
+  margin: 0 12px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  color: #90caf9;
+}
+
+/* ==== Botón de logout ==== */
+button.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #1e2024;
+  border: none;
+  border-radius: 12px;
+  color: #e0e0e0;
+  padding: 8px 15px;
+  box-shadow: 6px 6px 12px #0f1012, -6px -6px 12px #2c2f34;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button.logout-btn mat-icon {
+  font-size: 20px;
+}
+
+button.logout-btn:hover {
+  box-shadow: 3px 3px 6px #0f1012, -3px -3px 6px #2c2f34;
+  transform: translateY(-2px);
+  color: #ff5252;
+}

@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+
+<div class="content-container">
+  <mat-card>
+    <h2>Editar Alquilable</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Marca</mat-label>
+        <input matInput formControlName="marca" />
+      </mat-form-field>
+
+      <div class="disponibilidad-toggle">
+        <mat-slide-toggle
+          formControlName="disponible"
+          color="primary"
+          (change)="onToggleChange($event)"
+        >
+          {{ form.get('disponible')?.value ? 'Disponible' : 'No disponible' }}
+        </mat-slide-toggle>
+
+        <mat-icon
+          [ngClass]="{
+            'activo': form.get('disponible')?.value,
+            'inactivo': !form.get('disponible')?.value
+          }"
+          class="estado-icon"
+        >
+          {{ form.get('disponible')?.value ? 'check_circle' : 'cancel' }}
+        </mat-icon>
+      </div>
+
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit">
+          <mat-icon>save</mat-icon>
+          Guardar cambios
+        </button>
+        <button
+          mat-stroked-button
+          color="accent"
+          type="button"
+          (click)="cancelar()"
+        >
+          <mat-icon>arrow_back</mat-icon>
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

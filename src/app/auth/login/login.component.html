@@ -1,0 +1,24 @@
+<div class="login-container">
+  <mat-card>
+    <h2>Iniciar sesión</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+        <button mat-icon-button matSuffix type="button" (click)="hide = !hide">
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full-width" type="submit">
+        Ingresar
+      </button>
+    </form>
+  </mat-card>
+</div>

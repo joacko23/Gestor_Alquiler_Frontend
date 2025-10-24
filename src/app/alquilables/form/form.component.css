@@ -1,0 +1,44 @@
+:host {
+  display: block;
+  background: #1c1e22;
+  min-height: 100vh;
+  padding: 40px;
+  font-family: 'Roboto', sans-serif;
+  color: #e0e0e0;
+}
+
+mat-card {
+  width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 20px;
+  background: #1e2024;
+  box-shadow: 10px 10px 20px #0f1012, -10px -10px 20px #2c2f34;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+  color: #e0e0e0;
+}
+
+/* Botones */
+button {
+  width: 100%;
+  border-radius: 12px;
+  background: #1e2024;
+  box-shadow: 6px 6px 12px #0f1012, -6px -6px 12px #2c2f34;
+  color: #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 6px #0f1012, -3px -3px 6px #2c2f34;
+}

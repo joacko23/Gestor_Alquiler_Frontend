@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+
+<div class="content-container">
+  <mat-card>
+    <h2>Crear nuevo Alquilable</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Tipo</mat-label>
+        <mat-select formControlName="tipo" required>
+          <mat-option *ngFor="let tipo of tipos" [value]="tipo">
+            {{ tipo }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Marca</mat-label>
+        <input matInput formControlName="marca" required />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full-width" type="submit">
+        <mat-icon>save</mat-icon>
+        Crear
+      </button>
+    </form>
+  </mat-card>
+</div>

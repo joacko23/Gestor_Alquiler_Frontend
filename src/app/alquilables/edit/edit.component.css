@@ -1,0 +1,118 @@
+/* === Fondo general oscuro === */
+:host {
+  display: block;
+  background: #1c1e22;
+  min-height: 100vh;
+  padding: 40px;
+  font-family: 'Roboto', sans-serif;
+  color: #e0e0e0;
+}
+
+/* === Tarjeta principal === */
+mat-card {
+  width: 420px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 20px;
+  background: #1e2024;
+  box-shadow: 10px 10px 20px #0f1012, -10px -10px 20px #2c2f34;
+  transition: all 0.3s ease-in-out;
+}
+
+mat-card:hover {
+  box-shadow: 6px 6px 12px #0f1012, -6px -6px 12px #2c2f34;
+}
+
+/* === Título === */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* === Campos de formulario === */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+  color: #e0e0e0;
+}
+
+.mat-mdc-form-field-infix input {
+  color: #e0e0e0 !important;
+}
+
+/* === Toggle de disponibilidad === */
+.disponibilidad-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 15px;
+  padding: 12px 15px;
+  border-radius: 16px;
+  background: #1e2024;
+  box-shadow: inset 6px 6px 10px #0f1012, inset -6px -6px 10px #2c2f34;
+  transition: all 0.3s ease;
+}
+
+/* === Iconos dinámicos === */
+.estado-icon {
+  vertical-align: middle;
+  margin-right: 10px;
+  font-size: 22px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Verde suave y rojo brillante en oscuro */
+mat-slide-toggle.checked .estado-icon {
+  color: #4caf50;
+}
+
+mat-slide-toggle:not(.checked) .estado-icon {
+  color: #f44336;
+}
+
+/* === Botones === */
+.botones-acciones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+/* === Botones neumórficos oscuros === */
+.neumorphic-btn {
+  border-radius: 12px;
+  background: #1e2024;
+  box-shadow: 6px 6px 12px #0f1012, -6px -6px 12px #2c2f34;
+  color: #e0e0e0;
+  transition: all 0.3s ease-in-out;
+}
+
+.neumorphic-btn:hover {
+  box-shadow: 3px 3px 6px #0f1012, -3px -3px 6px #2c2f34;
+  transform: translateY(-2px);
+}
+
+.neumorphic-btn mat-icon {
+  margin-right: 6px;
+}
+
+/* === Animación general === */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* === Scrollbar oscuro sutil === */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2b2d32;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b3d42;
+}

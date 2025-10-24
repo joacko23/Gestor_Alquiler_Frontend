@@ -1,0 +1,88 @@
+:host {
+  display: block;
+  background: #1c1e22;
+  min-height: 100vh;
+  padding: 40px;
+  color: #e0e0e0;
+  font-family: 'Roboto', sans-serif;
+}
+
+mat-card {
+  padding: 25px;
+  border-radius: 20px;
+  background: #1e2024;
+  box-shadow: 10px 10px 20px #0f1012, -10px -10px 20px #2c2f34;
+}
+
+h2 {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th {
+  background: #272a2f;
+  color: #aab0b8;
+  font-weight: 500;
+}
+
+td {
+  background: #1f2125;
+  color: #e0e0e0;
+}
+
+tr:hover td {
+  background: #2a2d33;
+  transition: background 0.3s ease;
+}
+
+/* Botón de nuevo */
+.nuevo-btn {
+  border-radius: 12px;
+  background: #1e2024;
+  color: #e0e0e0;
+  box-shadow: 6px 6px 12px #0f1012, -6px -6px 12px #2c2f34;
+  transition: all 0.3s ease;
+}
+
+.nuevo-btn:hover {
+  box-shadow: 3px 3px 6px #0f1012, -3px -3px 6px #2c2f34;
+  transform: translateY(-2px);
+}
+
+/* Icono eliminar */
+button[color='warn'] mat-icon {
+  color: #f44336;
+  transition: transform 0.2s ease;
+}
+
+button[color='warn']:hover mat-icon {
+  transform: scale(1.2);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2b2d32;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b3d42;
+}
