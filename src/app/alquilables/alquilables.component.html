@@ -16,6 +16,44 @@
       </button>
     </div>
 
+    <!-- 🔍 FILTROS -->
+    <div class="filter-row">
+      <mat-form-field appearance="outline" class="filter">
+        <mat-label>Tipo</mat-label>
+        <mat-select [(ngModel)]="filtros.tipo">
+          <mat-option value="">Todos</mat-option>
+          <mat-option *ngFor="let tipo of tipos" [value]="tipo">
+            {{ tipo }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="filter">
+        <mat-label>Marca</mat-label>
+        <input matInput [(ngModel)]="filtros.marca" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="filter">
+        <mat-label>Disponibilidad</mat-label>
+        <mat-select [(ngModel)]="filtros.disponible">
+          <mat-option value="">Todas</mat-option>
+          <mat-option [value]="true">Sí</mat-option>
+          <mat-option [value]="false">No</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="accent" (click)="buscar()">
+        <mat-icon>search</mat-icon>
+        Buscar
+      </button>
+
+      <button mat-stroked-button color="warn" (click)="limpiarFiltros()">
+        <mat-icon>clear</mat-icon>
+        Limpiar
+      </button>
+    </div>
+
+    <!-- 📋 TABLA -->
     <table
       mat-table
       [dataSource]="dataSource"
@@ -41,8 +79,8 @@
         <td mat-cell *matCellDef="let item">
           <mat-icon
             [ngClass]="{
-              'activo': item.disponible,
-              'inactivo': !item.disponible
+              activo: item.disponible,
+              inactivo: !item.disponible
             }"
           >
             {{ item.disponible ? 'check_circle' : 'cancel' }}
@@ -63,6 +101,10 @@
           <button mat-icon-button color="warn" (click)="eliminar(item.id)">
             <mat-icon>delete</mat-icon>
           </button>
+          <button mat-icon-button color="accent" (click)="abrirCostoDialog(item)">
+  <mat-icon>calculate</mat-icon>
+</button>
+
         </td>
       </ng-container>
 

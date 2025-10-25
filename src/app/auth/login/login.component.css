@@ -3,14 +3,49 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #f5f5f5;
+  background: radial-gradient(circle at top left, #1c1c1c, #121212 70%);
 }
 
 mat-card {
   width: 350px;
   padding: 20px;
+  border-radius: 20px;
+  background: #1e1e1e;
+  color: #e0e0e0;
+  box-shadow: 6px 6px 12px #0d0d0d, -6px -6px 12px #2a2a2a;
+  transition: all 0.3s ease;
 }
 
-.full-width {
+mat-card:hover {
+  box-shadow: 8px 8px 14px #0d0d0d, -8px -8px 14px #2a2a2a;
+}
+
+mat-form-field {
   width: 100%;
+  margin-bottom: 20px;
+}
+
+button {
+  width: 100%;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #2c2c2c, #1a1a1a);
+  color: #fff;
+  box-shadow: 5px 5px 10px #0d0d0d, -5px -5px 10px #2a2a2a;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(145deg, #353535, #1a1a1a);
+}
+.login-title {
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #e0e0e0;
+  letter-spacing: 0.5px;
+}
+
+.login-btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

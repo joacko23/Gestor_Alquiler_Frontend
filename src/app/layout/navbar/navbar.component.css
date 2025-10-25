@@ -1,5 +1,10 @@
 nav {
-  background: #1e2024;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(30, 32, 36, 0.8);
+  /* semitransparente para que se vea el blur */
   color: #e0e0e0;
   padding: 15px 25px;
   display: flex;
@@ -8,6 +13,10 @@ nav {
   box-shadow: 10px 10px 20px #0f1012, -10px -10px 20px #2c2f34;
   border-radius: 0 0 20px 20px;
   font-family: 'Roboto', sans-serif;
+
+  /* Blur compatible */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 /* ==== Grupos izquierda y derecha ==== */
@@ -29,19 +38,21 @@ nav h1 {
   font-size: 20px;
   font-weight: 500;
   color: #90caf9;
+  letter-spacing: 0.5px;
 }
 
-/* ==== Links ==== */
+/* ==== Link principal ==== */
 nav a {
   text-decoration: none;
   color: #e0e0e0;
-  margin: 0 12px;
-  transition: color 0.3s ease;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 nav a:hover,
 nav a.active {
   color: #90caf9;
+  transform: translateY(-1px);
 }
 
 /* ==== Botón de logout ==== */

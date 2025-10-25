@@ -1,4 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  background: #121212;
+  color: #e0e0e0;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Neumorfismo oscuro global */
+mat-card {
+  background: #1e1e1e;
+  color: #e0e0e0;
+  border-radius: 16px;
+  box-shadow: 6px 6px 12px #0d0d0d, -6px -6px 12px #2a2a2a;
+  transition: all 0.3s ease;
+}
+
+mat-card:hover {
+  box-shadow: 8px 8px 14px #0d0d0d, -8px -8px 14px #2a2a2a;
+}
+
+/* Campos y botones oscuros */
+.mat-mdc-text-field-wrapper {
+  background: #1c1c1c !important;
+}
+
+.mat-mdc-raised-button.mat-primary {
+  background: linear-gradient(145deg, #2c2c2c, #1a1a1a);
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 5px 5px 10px #0d0d0d, -5px -5px 10px #2a2a2a;
+}
+
+.mat-mdc-raised-button.mat-primary:hover {
+  background: linear-gradient(145deg, #353535, #1a1a1a);
+}
+
+/* Corrige fondo del diálogo */
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  background: #1e1e1e !important;
+  color: #e0e0e0 !important;
+  border-radius: 20px;
+  box-shadow: 8px 8px 16px #0d0d0d, -8px -8px 16px #2a2a2a;
+}
