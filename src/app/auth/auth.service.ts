@@ -50,4 +50,20 @@ export class AuthService {
   logout(): void {
     sessionStorage.removeItem('jwt');
   }
+
+  /** 🔹 Obtener información del usuario desde el token */
+  getUserInfo(): { email: string | null } {
+    const token = this.getToken();
+    if (!token) return { email: null };
+
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return {
+        email: payload.sub || payload.email || null,
+      };
+    } catch (error) {
+      console.error('Error al decodificar token', error);
+      return { email: null };
+    }
+  }
 }

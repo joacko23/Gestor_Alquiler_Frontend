@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+
+<mat-card>
+  <h2>Nueva Reserva</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Alquilable</mat-label>
+      <mat-select
+        formControlName="alquilableId"
+        (selectionChange)="onAlquilableChange($event)"
+      >
+        <mat-option *ngFor="let a of alquilables" [value]="a.id">
+          {{ a.tipo }} - {{ a.marca }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Fecha/Hora de inicio -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>{{
+        isPorHora ? 'Fecha y hora de inicio' : 'Fecha de inicio'
+      }}</mat-label>
+
+      <input
+        matInput
+        [matDatepicker]="pickerInicio"
+        formControlName="inicio"
+        [placeholder]="isPorHora ? 'Seleccionar fecha y hora' : 'Seleccionar fecha'"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="pickerInicio"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #pickerInicio></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Fecha/Hora de fin -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>{{
+        isPorHora ? 'Fecha y hora de fin' : 'Fecha de fin'
+      }}</mat-label>
+
+      <input
+        matInput
+        [matDatepicker]="pickerFin"
+        formControlName="fin"
+        [placeholder]="isPorHora ? 'Seleccionar fecha y hora' : 'Seleccionar fecha'"
+      />
+      <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>
+      <mat-datepicker #pickerFin></mat-datepicker>
+    </mat-form-field>
+
+    <div class="actions">
+      <button mat-raised-button color="primary" type="submit">
+        Guardar Reserva
+      </button>
+      <button mat-stroked-button color="accent" type="button" (click)="volver()">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</mat-card>

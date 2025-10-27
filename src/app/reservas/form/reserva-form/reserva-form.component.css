@@ -1,0 +1,35 @@
+mat-card {
+  width: 400px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #1e2024;
+  color: #e0e0e0;
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px #0f1012, -10px -10px 20px #2c2f34;
+}
+
+h2 {
+  text-align: center;
+  color: #90caf9;
+  margin-bottom: 15px;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
