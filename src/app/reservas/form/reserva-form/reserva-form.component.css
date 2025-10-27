@@ -33,3 +33,8 @@ button {
 button:hover {
   transform: translateY(-2px);
 }
+
+.time-field {
+  margin-top: -10px;
+  margin-bottom: 15px;
+}

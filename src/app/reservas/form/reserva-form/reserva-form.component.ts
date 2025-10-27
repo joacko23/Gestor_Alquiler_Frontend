@@ -56,7 +56,9 @@ export class ReservaFormComponent implements OnInit {
     this.form = this.fb.group({
       alquilableId: ['', Validators.required],
       inicio: ['', Validators.required],
+      horaInicio: [''],
       fin: ['', Validators.required],
+      horaFin: [''],
     });
 
     this.cargarAlquilables();
@@ -88,7 +90,16 @@ export class ReservaFormComponent implements OnInit {
       return;
     }
 
-    const { inicio, fin, alquilableId } = this.form.value;
+    const { inicio, fin, horaInicio, horaFin, alquilableId } = this.form.value;
+
+    const combinarFechaHora = (fecha: string, hora: string) => {
+      const fechaObj = new Date(fecha);
+      if (hora) {
+        const [h, m] = hora.split(':');
+        fechaObj.setHours(+h, +m);
+      }
+      return fechaObj.toISOString();
+    };
 
     // ⏱ Aseguramos formato ISO correcto
     const formatearFecha = (fecha: any) => {
@@ -104,14 +115,19 @@ export class ReservaFormComponent implements OnInit {
 
     const reservaData = {
       alquilableId,
-      inicio: formatearFecha(inicio),
-      fin: formatearFecha(fin),
+      inicio: this.isPorHora
+        ? combinarFechaHora(inicio, horaInicio)
+        : new Date(inicio).toISOString(),
+      fin: this.isPorHora
+        ? combinarFechaHora(fin, horaFin)
+        : new Date(fin).toISOString(),
       usuarioEmail: user.email,
     };
 
     this.reservasService.crear(reservaData).subscribe({
-      next: () => {
-        alert('✅ Reserva creada exitosamente');
+      next: (reservaCreada) => {
+        const costo = reservaCreada.costoTotal?.toFixed(2) || '0.00';
+        alert(`✅ Reserva creada exitosamente\n\nCosto total: $${costo}`);
         this.router.navigate(['/reservas']);
       },
       error: (err) => {
@@ -119,6 +135,7 @@ export class ReservaFormComponent implements OnInit {
         alert('❌ Error al crear la reserva');
       },
     });
+
   }
 
   volver(): void {

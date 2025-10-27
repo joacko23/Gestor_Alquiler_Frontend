@@ -18,38 +18,45 @@
 
     <!-- Fecha/Hora de inicio -->
     <mat-form-field appearance="outline" class="full-width">
-      <mat-label>{{
-        isPorHora ? 'Fecha y hora de inicio' : 'Fecha de inicio'
-      }}</mat-label>
-
+      <mat-label>{{ isPorHora ? 'Fecha de inicio' : 'Fecha de inicio' }}</mat-label>
       <input
         matInput
         [matDatepicker]="pickerInicio"
         formControlName="inicio"
-        [placeholder]="isPorHora ? 'Seleccionar fecha y hora' : 'Seleccionar fecha'"
+        placeholder="Seleccionar fecha"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="pickerInicio"
-      ></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="pickerInicio"></mat-datepicker-toggle>
       <mat-datepicker #pickerInicio></mat-datepicker>
     </mat-form-field>
 
+    <!-- Hora de inicio (solo si es por hora) -->
+    <div *ngIf="isPorHora" class="time-field">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Hora de inicio</mat-label>
+        <input matInput type="time" formControlName="horaInicio" required />
+      </mat-form-field>
+    </div>
+
     <!-- Fecha/Hora de fin -->
     <mat-form-field appearance="outline" class="full-width">
-      <mat-label>{{
-        isPorHora ? 'Fecha y hora de fin' : 'Fecha de fin'
-      }}</mat-label>
-
+      <mat-label>{{ isPorHora ? 'Fecha de fin' : 'Fecha de fin' }}</mat-label>
       <input
         matInput
         [matDatepicker]="pickerFin"
         formControlName="fin"
-        [placeholder]="isPorHora ? 'Seleccionar fecha y hora' : 'Seleccionar fecha'"
+        placeholder="Seleccionar fecha"
       />
       <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>
       <mat-datepicker #pickerFin></mat-datepicker>
     </mat-form-field>
+
+    <!-- Hora de fin (solo si es por hora) -->
+    <div *ngIf="isPorHora" class="time-field">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Hora de fin</mat-label>
+        <input matInput type="time" formControlName="horaFin" required />
+      </mat-form-field>
+    </div>
 
     <div class="actions">
       <button mat-raised-button color="primary" type="submit">
