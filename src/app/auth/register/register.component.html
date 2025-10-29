@@ -1,6 +1,6 @@
 <div class="login-container">
   <mat-card>
-    <h2 class="login-title">Iniciar sesión</h2>
+    <h2 class="login-title">Crear cuenta</h2>
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
       <mat-form-field appearance="outline" class="full-width">
@@ -27,7 +27,7 @@
           [type]="hide ? 'password' : 'text'"
           formControlName="password"
           required
-          placeholder="Tu contraseña"
+          placeholder="Mínimo 6 caracteres"
         />
         <button
           mat-icon-button
@@ -41,6 +41,20 @@
         <mat-error *ngIf="form.get('password')?.hasError('required')">
           La contraseña es obligatoria
         </mat-error>
+        <mat-error *ngIf="form.get('password')?.hasError('minlength')">
+          Mínimo 6 caracteres
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Confirmar contraseña</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          formControlName="confirmPassword"
+          required
+          placeholder="Repetí tu contraseña"
+        />
       </mat-form-field>
 
       <button
@@ -50,14 +64,18 @@
         type="submit"
         [disabled]="form.invalid"
       >
-        Ingresar
+        Registrarse
       </button>
-      <div class="text-center" style="margin-top: 10px;">
-  <a routerLink="/register" style="color: #90caf9; text-decoration: none;">
-    ¿No tenés cuenta? Registrate aquí
-  </a>
-</div>
 
+      <button
+        mat-stroked-button
+        color="accent"
+        class="full-width"
+        type="button"
+        (click)="volver()"
+      >
+        Volver al login
+      </button>
     </form>
   </mat-card>
 </div>
