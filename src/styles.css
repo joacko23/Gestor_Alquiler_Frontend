@@ -44,3 +44,21 @@ mat-card:hover {
   border-radius: 20px;
   box-shadow: 8px 8px 16px #0d0d0d, -8px -8px 16px #2a2a2a;
 }
+
+.snackbar-success {
+  background-color: #2e7d32 !important;
+  /* verde */
+  color: #fff !important;
+}
+
+.snackbar-error {
+  background-color: #c62828 !important;
+  /* rojo */
+  color: #fff !important;
+}
+
+.snackbar-warning {
+  background-color: #f9a825 !important;
+  /* amarillo */
+  color: #000 !important;
+}

@@ -12,7 +12,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { Router, RouterLink } from '@angular/router';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,7 @@ import { Router, RouterLink } from '@angular/router';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    RouterLink
+    MatSnackBarModule,
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
@@ -37,7 +38,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -58,12 +60,18 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next: (res) => {
           sessionStorage.setItem('jwt', res.token);
-          alert('Login exitoso');
-          this.router.navigate(['/alquilables']); // ✅ Redirigir tras login exitoso
+          this.snackBar.open('✅ Login exitoso', 'Cerrar', {
+            duration: 2500,
+            panelClass: ['snackbar-success'],
+          });
+          this.router.navigate(['/alquilables']);
         },
         error: (err) => {
           console.error(err);
-          alert('Error al iniciar sesión');
+          this.snackBar.open('❌ Error al iniciar sesión', 'Cerrar', {
+            duration: 3000,
+            panelClass: ['snackbar-error'],
+          });
         },
       });
   }
