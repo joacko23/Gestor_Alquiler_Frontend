@@ -1,59 +1,172 @@
-# GestorAlquiler
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:2b2b2b,100:4b0082&height=150&section=header&text=Gestor%20de%20Alquiler%20–%20Frontend&fontSize=40&fontColor=ffffff" />
+</p>
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
+<p align="center">
+  <b>Angular 19 • Dark Neumorphism UI • JWT Auth • Material Design</b><br>
+  <i>Frontend for the rental management system</i>
+</p>
 
-## Development server
+---
 
-To start a local development server, run:
+# 🚀 Overview
 
-```bash
-ng serve
+**Gestor_Alquiler_Frontend** is a modern **Angular 19** application with a **neumorphic dark interface**, designed to manage:
+
+- ✅ Vehicle rentals (charged per hour)  
+- ✅ Appliance rentals (charged per day)  
+- ✅ User-specific reservations (linked to email login)  
+
+The frontend consumes the **Spring Boot REST API** and includes a complete authentication flow with **JWT**, route protection, filtering, forms, and Angular Material components.
+
+---
+
+# 🎨 UI Style
+
+- 🟣 **Dark mode + neumorphism**  
+- 💜 Purple highlight (matching brand identity)  
+- ⭐ Soft shadows and rounded surfaces  
+- ✔️ Forms with Material Design + Reactive Forms  
+- ✔️ DatePickers for selecting rental dates  
+- ✔️ Snackbar notifications for feedback  
+
+---
+
+# ✅ Features
+
+### 🔐 **Auth**
+- Login & Registration  
+- JWT saved in `sessionStorage`  
+- AuthGuard for protected routes  
+- Interceptor attaches token to every request  
+
+### 📦 **Rental / Alquilables**
+- List + Filters (type, brand, availability)  
+- Create / Edit alquilables  
+- Availability indicators (✅ / ❌)  
+- CRUD UI with neumorphic modals  
+- Linked to backend pricing strategies  
+
+### 📄 **Reservations**
+- List of all rentals  
+- Rentals tied to the logged user  
+- Create new reservation form  
+- Datepicker for start & end dates  
+- Cost returned from backend automatically  
+
+### 🧭 Navigation
+- Login  
+- Register  
+- Alquilables  
+- Reservas  
+- Logout  
+
+---
+
+# 🖼️ Screenshots
+
+> Make sure these files exist inside `/assets/screens/`.
+
+### ✅ Login  
+<p align="center">
+  <img src="assets/screens/login.png" width="80%">
+</p>
+
+### ✅ Alquilables List  
+<p align="center">
+  <img src="assets/screens/alquilables.png" width="80%">
+</p>
+
+### ✅ Reservations List  
+<p align="center">
+  <img src="assets/screens/reservas.png" width="80%">
+</p>
+
+### ✅ New Reservation  
+<p align="center">
+  <img src="assets/screens/nueva-reserva.png" width="80%">
+</p>
+
+---
+
+# 🧠 Architecture
+src/  
+├── app/  
+│ ├── components/  
+│ ├── pages/  
+│ ├── services/  
+│ ├── guards/  
+│ ├── interceptors/  
+│ └── models/  
+├── assets/  
+└── environments/  
+
+### 🔧 Main Parts
+
+- **Services** – communication with backend  
+- **Guards** – protect routes via JWT  
+- **Interceptors** – inject Authorization header  
+- **Reactive Forms** – login, register, CRUDs  
+- **Material UI** – cards, buttons, select, datepicker  
+
+---
+
+# 🌐 API Integration
+
+The base URL is configured in:
+src/environments/environment.ts  
+
+Example:
+
+```ts
+export const environment = {
+  apiUrl: 'http://localhost:8080'
+};
 ```
+All services derive from this endpoint.  
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+# ▶️ How to Run  
 
-## Code scaffolding
+### ✅ 1. Clone the repo  
+git clone https://github.com/joacko23/Gestor_Alquiler_Frontend.git
+cd Gestor_Alquiler_Frontend
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### ✅ 2. Install dependencies  
+npm install  
 
-```bash
-ng generate component component-name
-```
+### ✅ 3. Run the project  
+ng serve -o  
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Frontend available at:
+➡️ http://localhost:4200  
 
-```bash
-ng generate --help
-```
+# 🛠️ Technologies
 
-## Building
+- Angular 19
 
-To build the project run:
+- Angular Material
 
-```bash
-ng build
-```
+- Reactive Forms
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- RxJS
 
-## Running unit tests
+- TypeScript
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- JWT Interceptor
 
-```bash
-ng test
-```
+- Neumorphism UI
 
-## Running end-to-end tests
+- HTML / SCSS
 
-For end-to-end (e2e) testing, run:
+# 📌 Status
 
-```bash
-ng e2e
-```
+### 🚧 In development  
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+# 👨‍💻 Author
 
-## Additional Resources
+**Joaquín Domenech**  
+Full-Stack Developer  
+📧 joackodomenech@gmail.com
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+<p align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&color=0:4b0082,100:2b2b2b&height=150&section=footer" /> </p>
+
